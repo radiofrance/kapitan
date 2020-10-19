@@ -1,0 +1,11 @@
+parameters:
+  kapitan:
+    vars:
+      target: test
+    compile:
+      - output_path: json
+        output_type: json
+        prune: false
+        input_paths:
+          - templates/tanka.jsonnet
+        input_type: jsonnet

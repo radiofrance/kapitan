@@ -1,0 +1,11 @@
+parameters:
+  kapitan:
+    vars:
+      target: test-inventory
+    compile:
+      - output_path: .
+        output_type: yaml
+        prune: false
+        input_paths:
+          - templates/inventory.jsonnet
+        input_type: jsonnet
