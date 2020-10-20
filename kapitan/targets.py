@@ -76,7 +76,10 @@ def compile_targets(
                 logger.info("No changes since last compilation.")
                 return
 
-    pool = multiprocessing.Pool(parallel)
+
+    # Setup multiprocessing to 'spawn' instead of 'fork', avoiding possible
+    # deadlock when running with gojsonnet (lock copy).
+    pool = multiprocessing.get_context("spawn").Pool(parallel)
 
     try:
         if kwargs.get("fetch_inventories", False):
